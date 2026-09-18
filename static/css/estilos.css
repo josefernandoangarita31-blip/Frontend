@@ -1,0 +1,308 @@
+* { 
+ 
+ 
+    box-sizing: border-box; 
+ 
+} 
+ 
+body { 
+ 
+    margin: 0; 
+ 
+    font-family: Arial, sans-serif; 
+ 
+    background-color: #f4f6f8; 
+ 
+    color: #333; 
+ 
+} 
+ 
+header { 
+ 
+    background-color: #1f4e79; 
+ 
+    color: white; 
+ 
+    text-align: center; 
+ 
+    padding: 30px; 
+ 
+} 
+ 
+header h1 { 
+    margin: 0; 
+ 
+} 
+ 
+header p { 
+    margin-top: 10px; 
+ 
+} 
+ 
+/* 20. Estilos generales del menú */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    background-color: #163a5c;
+    padding: 15px;
+}
+
+/* Estilos para los enlaces dentro del nav */
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover { 
+    text-decoration: underline; 
+} 
+ 
+main { 
+    width: 90%; 
+    max-width: 1100px; 
+    margin: 30px auto; 
+ 
+} 
+ 
+section { 
+    background-color: white; 
+    padding: 25px; 
+    margin-bottom: 25px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+} 
+ 
+h2 { 
+    color: #1f4e79; 
+} 
+ 
+footer { 
+    background-color: #163a5c; 
+    color: white; 
+    text-align: center; 
+    padding: 20px; 
+    margin-top: 30px; 
+}
+.campo {
+    margin-bottom: 20px;
+}
+/* 26. Estilizar los label */
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* 27. Estilizar los input y select */
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* 28. Efecto al seleccionar un campo */
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #1f4e79;
+}
+
+.btn { 
+    padding: 12px 20px; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-size: 15px; 
+    margin-right: 10px; 
+ 
+} 
+
+Botón guardar: 
+.btn-guardar { 
+    background-color: #1f4e79; 
+    color: white; 
+} 
+
+Botón limpiar: 
+.btn-limpiar { 
+    background-color: #777; 
+    color: white; 
+ 
+} 
+
+/* 30. EFECTO HOVER PARA BOTONES */
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* 31. ESTILIZAR LA TABLA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+/* 32. ENCABEZADOS DE LA TABLA */
+th {
+    background-color: #1f4e79;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* 33. CELDAS DE LA TABLA */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 34. EFECTO EN LAS FILAS */
+tbody tr:hover { 
+    background-color: #f1f1f1; 
+} 
+
+/* Estilos para el contenedor de las tarjetas */
+.contenedor-tarjetas { 
+ 
+    display: flex; 
+ 
+    gap: 20px; 
+ 
+    justify-content: center; 
+ 
+    flex-wrap: wrap; 
+ 
+} 
+ 
+ 
+.tarjeta { 
+ 
+    flex: 1; 
+ 
+ 
+    min-width: 200px; 
+ 
+    background-color: white; 
+ 
+    padding: 25px; 
+ 
+    border-radius: 10px; 
+ 
+    text-align: center; 
+ 
+    box-shadow: 
+        0 2px 8px 
+        rgba(218, 16, 16, 0.1); 
+ 
+} 
+ 
+ 
+.tarjeta h3 { 
+ 
+    margin-top: 0; 
+ 
+} 
+ 
+ 
+.tarjeta p { 
+ 
+    font-size: 30px; 
+ 
+    font-weight: bold; 
+ 
+    margin-bottom: 0; 
+ 
+}
+/* 22. Centrar y limitar el ancho del formulario en PC */
+.formulario {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* 23. Ajustar tamaño exacto de inputs */
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box; /* Evita que el padding deforme el tamaño del input */
+}
+/* 24. Contenedor para scroll horizontal en tablas */
+.tabla-responsive {
+    overflow-x: auto;
+}
+/* 19 y 21. Reglas exclusivas para pantallas pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+    
+    /* 19. Tarjetas en columna */
+    .contenedor-tarjetas {
+        flex-direction: column;
+    }
+
+    /* 21. Menú de navegación en columna */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* 27. RETO INTEGRADOR: Estilos para últimos productos */
+.contenedor-productos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que las tarjetas bajen si no caben en pantalla */
+}
+
+.tarjeta-producto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    flex: 1 1 250px; /* Crece, se encoge y tiene un ancho base de 250px */
+    border-left: 5px solid #1f4e79; /* Detalle estético con borde azul */
+}
+
+.tarjeta-producto h3 {
+    margin-top: 0;
+    color: #1f4e79;
+}
+
+.tarjeta-producto p {
+    margin: 8px 0;
+}
+
+/* 28. RETO EXTRA: Media Query para pantallas menores a 600px */
+@media (max-width: 600px) {
+
+    /* 1. Las tarjetas ocupan todo el ancho */
+    .tarjeta, 
+    .tarjeta-producto {
+        width: 100%;
+        flex: none; /* Desactiva el cálculo flex para forzar el 100% */
+    }
+
+    /* 2. Los botones ocupan todo el ancho */
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+        margin-right: 0; /* Quita el margen lateral */
+    }
+
+    /* 3. El menú se muestra verticalmente */
+    nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    /* 4. La tabla se desplaza horizontalmente */
+    .tabla-responsive {
+        overflow-x: auto;
+        display: block;
+    }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Producto - Sistema de Inventario</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Sistema de Inventario</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="registrar.html">Registrar producto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="productos.html">Ver Productos</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white py-3 shadow-sm mb-4">
+        <div class="container text-center">
+            <h1 class="h3 text-primary m-0">Sistema de Inventario</h1>
+            <p class="text-muted m-0">Formulario de registro de productos</p>
+        </div>
+    </header>
+
+    <main class="container my-4" style="max-width: 900px;">
+        <div class="card shadow-sm p-4">
+            <h2 class="mb-4 text-center text-primary">Registrar producto</h2>
+
+            <!-- Div para mostrar alertas dinámicas de Bootstrap -->
+            <div id="mensaje" class="mb-3"></div>
+
+            <form id="formProducto">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="codigo" class="form-label">Código</label>
+                        <input type="text" class="form-control" id="codigo" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="nombre" class="form-label">Nombre del producto</label>
+                        <input type="text" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="categoria" class="form-label">Categoría</label>
+                        <input type="text" class="form-control" id="categoria" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="proveedor" class="form-label">Proveedor</label>
+                        <input type="text" class="form-control" id="proveedor" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="precio" class="form-label">Precio ($)</label>
+                        <input type="number" class="form-control" id="precio" min="1" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="cantidad" class="form-label">Cantidad (Stock)</label>
+                        <input type="number" class="form-control" id="cantidad" min="0" required>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="stockMinimo" class="form-label">Stock Mínimo</label>
+                        <input type="number" class="form-control" id="stockMinimo" min="0" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary mt-4 w-100">Guardar producto</button>
+            </form>
+
+            <h3 class="mt-5 mb-3 text-secondary h5">Vista previa de productos</h3>
+
+            <!-- Tabla adaptada con las mismas 9 columnas que renderiza app.js -->
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Proveedor</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Estado</th>
+                            <th>Valor Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaProductos">
+                        <!-- Carga dinámica mediante JS -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Contenedor del Total General -->
+            <div class="alert alert-info text-end fs-6 fw-bold mt-3 mb-0" id="totalInventarioContainer">
+                Valor total del inventario: $0
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-1">Sistema Web de Inventario</p>
+            <p class="mb-0 text-muted small">Tecnólogo en Análisis y Desarrollo de Software</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
