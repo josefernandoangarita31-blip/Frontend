@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8081/productos";
+const API_URL = "backend-production-076e5.up.railway.app/productos";
 let codigoEditando = null;
 
 // --- DIBUJAR FILAS EN LA TABLA Y CALCULAR TOTAL ---
