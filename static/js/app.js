@@ -1,14 +1,13 @@
-// 1. Configuración de la URL de Railway con el endpoint exacto del Controller
+// Configuración de la URL de Railway con el endpoint exacto de Spring Boot
 const API_URL = "https://backend-production-076e5.up.railway.app/api/productos";
 
-// Carga de eventos cuando el DOM está completamente listo
 document.addEventListener("DOMContentLoaded", () => {
-    // Si estamos en productos.html o registrar.html y existe la tabla, cargamos los datos
+    // Si existe la tabla de productos, cargamos la lista
     if (document.getElementById("tablaProductos")) {
         mostrarProductos();
     }
     
-    // Si existe el formulario de registro, escuchamos el submit
+    // Si existe el formulario de registro, escuchamos el envío
     const formProducto = document.getElementById("formProducto");
     if (formProducto) {
         formProducto.addEventListener("submit", guardarProducto);
@@ -21,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function mostrarProductos() {
     fetch(API_URL)
         .then(response => {
-            if (!response.ok) throw new Error("Error en la respuesta del servidor: " + response.status);
+            if (!response.ok) throw new Error("Error HTTP: " + response.status);
             return response.json();
         })
         .then(productos => {
@@ -29,7 +28,7 @@ function mostrarProductos() {
         })
         .catch(error => {
             console.error("Error al obtener productos:", error);
-            mostrarAlerta("No se pudo conectar con el backend o cargar la lista de productos.", "danger");
+            mostrarAlerta("No se pudo conectar con el backend o cargar los productos.", "danger");
         });
 }
 
@@ -40,7 +39,7 @@ function renderizarTabla(productos) {
     tbody.innerHTML = "";
     let totalAcumulado = 0;
 
-    if (productos.length === 0) {
+    if (!Array.isArray(productos) || productos.length === 0) {
         tbody.innerHTML = `<tr><td colspan="9" class="text-center text-muted">No hay productos registrados.</td></tr>`;
         actualizarTotalInventario(0);
         return;
@@ -50,7 +49,6 @@ function renderizarTabla(productos) {
         const valorTotal = (p.precio || 0) * (p.cantidad || 0);
         totalAcumulado += valorTotal;
 
-        // Determinación del estado según stock mínimo
         let badgeEstado = '<span class="badge bg-success">Disponible</span>';
         if (p.cantidad === 0) {
             badgeEstado = '<span class="badge bg-danger">Agotado</span>';
@@ -107,17 +105,17 @@ function guardarProducto(e) {
         body: JSON.stringify(productoData)
     })
     .then(response => {
-        if (!response.ok) throw new Error("Error al guardar el producto");
+        if (!response.ok) throw new Error("Error al guardar producto");
         return response.json();
     })
     .then(() => {
-        mostrarAlerta("Producto guardado correctamente con éxito.", "success");
+        mostrarAlerta("Producto guardado con éxito.", "success");
         document.getElementById("formProducto").reset();
         mostrarProductos();
     })
     .catch(error => {
         console.error("Error al registrar:", error);
-        mostrarAlerta("No se pudo registrar el producto. Revisa la consola.", "danger");
+        mostrarAlerta("No se pudo registrar el producto.", "danger");
     });
 }
 
@@ -140,7 +138,7 @@ function eliminarProducto(id) {
 }
 
 // ==========================================
-// BÚSQUEDA INDIVIDUAL (GET por ID/Código)
+// BÚSQUEDA INDIVIDUAL (GET por Código/ID)
 // ==========================================
 function buscarProductoPorId() {
     const busqueda = document.getElementById("buscarId").value.trim();
@@ -169,11 +167,11 @@ function limpiarBusqueda() {
 }
 
 // ==========================================
-// GENERACIÓN DE REPORTES PDF (jsPDF + AutoTable)
+// GENERAR REPORTE PDF (jsPDF + AutoTable)
 // ==========================================
 function generarPDF() {
     if (typeof window.jspdf === "undefined") {
-        mostrarAlerta("La librería jsPDF no está disponible.", "danger");
+        mostrarAlerta("La librería jsPDF no está cargada.", "danger");
         return;
     }
 
@@ -188,7 +186,7 @@ function generarPDF() {
     doc.autoTable({
         html: ".table",
         startY: 35,
-        columns: [0, 1, 2, 3, 4, 5, 6, 7], // Excluye la columna 'Acciones'
+        columns: [0, 1, 2, 3, 4, 5, 6, 7],
         headStyles: { fillColor: [33, 37, 41] },
         styles: { fontSize: 8 }
     });
@@ -197,7 +195,7 @@ function generarPDF() {
 }
 
 // ==========================================
-// HELPER PARA ALERTAS DINÁMICAS
+// ALERTAS DINÁMICAS BOOTSTRAP
 // ==========================================
 function mostrarAlerta(mensaje, tipo) {
     const contenedor = document.getElementById("mensaje");

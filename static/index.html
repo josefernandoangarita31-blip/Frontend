@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Inventario</title>
-    <!-- Bootstrap CSS -->
+    <title>Inicio - Sistema de Inventario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilos.css"> 
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body class="bg-light">
 
-    <!-- Navbar de Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand fw-bold" href="index.html">Sistema de Inventario</a>
@@ -20,131 +18,51 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="registrar.html">Registrar Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="registrar.html">Registrar producto</a></li>
                     <li class="nav-item"><a class="nav-link" href="productos.html">Ver Productos</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Encabezado con datos generales -->
     <header class="bg-white py-4 shadow-sm mb-4">
         <div class="container text-center">
-            <h1 id="titulo" class="display-5 text-primary fw-bold">Sistema de Inventario</h1>
-            <h2 class="h5 text-muted">Programa: Tecnólogo en Análisis y Desarrollo de Software</h2>
-            <p class="mb-1"><strong>Número de Ficha:</strong> 3233929</p>
-            <p class="mb-0"><strong>Aprendiz:</strong> Jose Fernando Angarita Quintero</p>
+            <h1 class="h2 text-primary fw-bold m-0">Panel Principal de Inventario</h1>
+            <p class="text-muted m-0">Gestión eficiente de productos e inventarios</p>
         </div>
     </header>
 
-    <main class="container">
-        <!-- Resumen del inventario -->
-        <section class="mb-5">
-            <h2 class="h4 mb-3 border-bottom pb-2">Resumen del inventario</h2>
-            <div class="row g-4">
-                <!-- Tarjeta 1: Productos -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card text-center border-primary shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="card-title text-muted h5">Productos</h3>
-                            <p class="display-5 fw-bold text-primary my-2" id="totalProductos">0</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Disponibles -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card text-center border-success shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="card-title text-muted h5">Disponibles</h3>
-                            <p class="display-5 fw-bold text-success my-2" id="totalDisponibles">0</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3: Agotados -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card text-center border-danger shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="card-title text-muted h5">Agotados</h3>
-                            <p class="display-5 fw-bold text-danger my-2" id="totalAgotados">0</p>
-                        </div>
+    <main class="container my-5">
+        <div class="row g-4 text-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100 p-4 border-0">
+                    <div class="card-body">
+                        <h3 class="card-title text-primary fw-bold">Registrar Producto</h3>
+                        <p class="card-text text-muted">Añade nuevos productos al sistema especificando código, stock y precios.</p>
+                        <a href="registrar.html" class="btn btn-primary btn-lg mt-3">Ir al Formulario</a>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Últimos productos registrados (Grid de Bootstrap) -->
-        <section class="mb-5">
-            <h2 class="h4 mb-3 border-bottom pb-2">Últimos productos registrados</h2>
-            <div class="row g-4">
-                <div class="col-12 col-md-4">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5 card-title text-primary fw-bold">TECLADO</h3>
-                            <p class="card-text mb-1"><strong>Código:</strong> P001</p>
-                            <p class="card-text mb-1"><strong>Precio:</strong> $120.000</p>
-                            <p class="card-text"><strong>Stock:</strong> 10</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5 card-title text-primary fw-bold">MOUSE</h3>
-                            <p class="card-text mb-1"><strong>Código:</strong> P002</p>
-                            <p class="card-text mb-1"><strong>Precio:</strong> $85.000</p>
-                            <p class="card-text"><strong>Stock:</strong> 5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-4">
-                    <div class="card shadow-sm h-100">
-                        <div class="card-body">
-                            <h3 class="h5 card-title text-primary fw-bold">MONITOR</h3>
-                            <p class="card-text mb-1"><strong>Código:</strong> P003</p>
-                            <p class="card-text mb-1"><strong>Precio:</strong> $850.000</p>
-                            <p class="card-text"><strong>Stock:</strong> 8</p>
-                        </div>
+            <div class="col-md-6">
+                <div class="card shadow-sm h-100 p-4 border-0">
+                    <div class="card-body">
+                        <h3 class="card-title text-success fw-bold">Consultar Inventario</h3>
+                        <p class="card-text text-muted">Revisa la lista completa de productos, busca por ID y exporta reportes en PDF.</p>
+                        <a href="productos.html" class="btn btn-success btn-lg mt-3">Ver Productos</a>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Descripción del proyecto -->
-        <section class="mb-4">
-            <h2 class="h4 mb-2 border-bottom pb-2">Descripción del Proyecto</h2>
-            <p>Este sistema web está diseñado para gestionar el registro, control de stock y seguimiento de productos en tiempo real, facilitando la administración eficiente dentro de una empresa.</p>
-        </section>
-
-        <!-- Imagen y Funciones del sistema -->
-        <div class="row g-4 mb-5">
-            <section class="col-12 col-md-6 text-center">
-                <h2 class="h4 mb-3 border-bottom pb-2">Vista del Sistema</h2>
-                <img src="img/inventario.png" alt="Imagen referente a control de inventario" class="img-fluid rounded shadow-sm" style="max-width: 350px;">
-            </section>
-
-            <section class="col-12 col-md-6">
-                <h2 class="h4 mb-3 border-bottom pb-2">Funciones del Sistema</h2>
-                <ul class="list-group list-group-flush shadow-sm rounded">
-                    <li class="list-group-item">Registrar nuevos productos en la base de datos</li>
-                    <li class="list-group-item">Consultar el catálogo y stock disponible</li>
-                    <li class="list-group-item">Actualizar las existencias y entradas/salidas</li>
-                    <li class="list-group-item">Eliminar registros de productos obsoletos</li>
-                    <li class="list-group-item">Generar reportes y alertas de stock bajo</li>
-                </ul>
-            </section>
         </div>
     </main>
 
-    <!-- Pie de página -->
-    <footer class="bg-dark text-white text-center py-3 mt-auto">
+    <footer class="bg-dark text-white text-center py-3 mt-5">
         <div class="container">
-            <p class="mb-0">&copy; 2026 - Sistema de Gestión de Inventario | Todos los derechos reservados</p>
+            <p class="mb-1">Sistema Web de Inventario</p>
+            <p class="mb-0 text-muted small">Tecnólogo en Análisis y Desarrollo de Software</p>
         </div>
     </footer>
 
-    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
 </body>
